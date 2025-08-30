@@ -1,0 +1,104 @@
+/* sade, temiz koyu tema */
+:root{
+  --bg:#071025; --panel:#0d1722; --muted:#9aa4b2; --accent:#e7f2ff;
+  --success:#16c784; --danger:#ff5c6c; --neutral:#7c8aa3; --glass: rgba(255,255,255,0.02);
+  --radius:10px; --shadow: 0 8px 28px rgba(2,6,23,0.6);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+*{box-sizing:border-box}
+body,html,#root{height:100%;margin:0;background:linear-gradient(180deg,#040617,#071025 80%);color:var(--accent)}
+.pro-simple{padding:20px;max-width:1200px;margin:0 auto}
+
+/* header */
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.branding{display:flex;gap:12px;align-items:center}
+.logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(90deg,#0ea5ff,#0366d6);display:flex;align-items:center;justify-content:center;font-weight:800;color:white}
+.header h1{margin:0;font-size:16px}
+.sub{font-size:12px;color:var(--muted);margin-top:4px}
+.controls{display:flex;gap:8px;align-items:center}
+.search{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:var(--accent);min-width:240px}
+.sel{padding:9px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:var(--accent)}
+.sel.limit{min-width:68px;text-align:center}
+.btn{padding:8px 10px;border-radius:8px;border:none;background:transparent;color:var(--accent);cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,#1fb6ff,#0166c6);color:white;box-shadow:0 6px 18px rgba(1,40,80,0.35)}
+.btn.ghost{border:1px solid rgba(255,255,255,0.04);background:transparent}
+
+/* summary */
+.summary{display:flex;gap:12px;margin-bottom:16px}
+.stat{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.55);flex:1;min-width:100px}
+.stat-label{font-size:12px;color:var(--muted);letter-spacing:0.2px}
+.stat-value{font-weight:800;font-size:20px;margin-top:8px;color:var(--accent)}
+.stat.clickable{cursor:pointer;transition:transform .12s ease, box-shadow .12s ease}
+.stat.clickable:hover{transform:translateY(-4px)}
+.stat.clickable.active{box-shadow: 0 12px 34px rgba(14,164,255,0.14);border:1px solid rgba(14,164,255,0.12)}
+.stat.clickable.active .stat-value{color:#bff1ff}
+.stat.clickable.active-all{box-shadow: 0 10px 30px rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
+
+/* table */
+.table{width:100%;border-collapse:collapse;background:var(--panel);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+.table thead{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+.table th,.table td{padding:12px 14px;border-bottom:1px solid var(--glass);font-size:13px;color:var(--accent);text-align:left}
+.table th.right,.table td.right{text-align:right}
+.table th.center,.table td.center{text-align:center}
+.symbol .small{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* badges & score */
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;color:#071022}
+.badge.buy{background:linear-gradient(90deg,var(--success),#00d27a)}
+.badge.sell{background:linear-gradient(90deg,#ff7b7b,var(--danger))}
+.badge.hold{background:linear-gradient(90deg,var(--neutral),#6f7f98);color:#fff}
+.score{display:inline-block;padding:6px 10px;border-radius:8px;font-weight:800}
+.score.pos{background:linear-gradient(90deg,#0dd67a,#16c784);color:#062618}
+.score.neg{background:linear-gradient(90deg,#ff8a8a,#ff5c6c);color:#2d0000}
+.score.neut{background:var(--glass);color:var(--accent)}
+
+/* reason */
+.reason{color:var(--muted);max-width:48ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* pager */
+.pager{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+.pager .btn{margin-left:6px}
+
+/* empty / alert */
+.empty{text-align:center;padding:18px;color:var(--muted)}
+.alert{background:#3b1f1f;color:#ffd3d3;padding:10px;border-radius:8px;margin-bottom:8px}
+
+/* dropdown içi option'ların okunurluğu */
+.sel option {
+  color: var(--accent) !important;
+  background: var(--panel) !important;
+}
+
+/* seçili interval gösterimi: 1h daha mavi, 4h daha sıcak - kontrast arttırıldı */
+.sel.interval-1h {
+  background: linear-gradient(90deg, rgba(10,36,62,0.9), rgba(6,30,56,0.9));
+  color: #dff6ff;
+  border-color: rgba(14,164,255,0.18);
+}
+.sel.interval-4h {
+  background: linear-gradient(90deg, rgba(35,20,48,0.9), rgba(40,22,54,0.9));
+  color: #fff7e6;
+  border-color: rgba(255,190,80,0.12);
+}
+
+/* daha belirgin seçili metin */
+.sel.interval-1h option,
+.sel.interval-4h option {
+  color: var(--accent);
+}
+
+/* focus görünürlüğü */
+.sel:focus {
+  outline: 2px solid rgba(14,164,255,0.08);
+  outline-offset: 2px;
+}
+
+/* responsive */
+@media (max-width:900px){
+  .controls{flex-wrap:wrap}
+  .summary{flex-direction:column}
+  .table th:nth-child(2), .table td:nth-child(2){display:none}
+  .controls{gap:6px}
+  .search{min-width:160px}
+  .sel.limit{min-width:56px}
+}
